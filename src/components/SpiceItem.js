@@ -19,7 +19,7 @@ class SpiceItem extends React.Component {
           <h2>{title}</h2>
           <p>{description}</p>
           <p>Tasting Notes: <em>{notes}</em></p>
-          <p>Rating: <StarRating percentage={rating / 5} /></p>
+          <div>Rating: <StarRating percentage={rating / 5} /></div>
         </div>
       </div>
     )
