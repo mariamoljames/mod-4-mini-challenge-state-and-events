@@ -21,7 +21,7 @@ git commit -m 'Done'
 git push
 ```
 
-To get feedback on your code, make sure to enable issues on this repo as well! Go to the Settings page for your fork, find the checkbox for 'Issues' and make sure it is checked.
+To get feedback on your code, make a [pull request from your forked repo](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
 ## Assignment
 
