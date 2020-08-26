@@ -8,10 +8,21 @@ class SpiceList extends React.Component {
   }
 
   renderSpices() {
-    return this.props.spices.map(spice => (
-      <SpiceItem key={spice.id} spice={spice} />
-    ))
+    let filteredSpices=this.props.spices.filter(spice => {
+      return spice.notes.toLowerCase().includes(this.state.search.toLowerCase())
+    })
+
+    if(this.state.fourStarOnly){
+      filteredSpices = filteredSpices.filter(spice => spice.rating >=4)
+    }
+      
+      return filteredSpices.map(spice => (
+        <SpiceItem key={spice.id} spice={spice} />
+      ))
   }
+
+  handleSearch = (event) => {this.setState({search: event.target.value})}
+  handleFourStar = () => {this.setState({fourStarOnly: !this.state.fourStarOnly})}
 
   render() {
     return (
@@ -21,10 +32,10 @@ class SpiceList extends React.Component {
           <div className="filters">
             <div>
               <label>Search: </label>
-              <input type="text" placeholder="Search By Tasting Notes..." />
+              <input type="text" placeholder="Search By Tasting Notes..." onChange={this.handleSearch} />
             </div>
             <label>
-              4 Star Only <input type="checkbox" />
+              4 Star Only <input type="checkbox" onChange={this.handleFourStar}/>
             </label>
           </div>
         </div>
